@@ -3,52 +3,28 @@ import React from "react";
 export default function Product(props) {
   return (
     <div className="row mt-3">
-      <div className="col-5">
-        <h2>
-          {props.product.name}
-          <span className="badge text-bg-secondary">₹{props.product.price}</span>
-        </h2>
-      </div>
-      <div className="col-3">
-        <div
-          className="btn-group"
+      <h3 className="col-4">{props.product.name}</h3>
+      <h4 className="col-4 mt-1">₹{props.product.price}</h4>
+      <div className="col-4 btn-group"
           role="group"
-          aria-label="Basic mixed styles example"
-        >
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={() => {
-              props.decrementQuantity(props.index);
-            }}
-          >
-            -
-          </button>
-          <button type="button" className="btn btn-warning">
-            {props.product.quantity}
-          </button>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={() => {
-              props.incrementQuantity(props.index);
-            }}
-          >
-            +
-          </button>
-        </div>
-      </div>
-      <div className="col-2">
-        {props.product.price * props.product.quantity}
-      </div>
+          aria-label="Basic mixed styles example">
       <button
-        className="col-2 btn bg-danger"
+        className="btn bg-danger"
         onClick={() => {
           props.removeItem(props.index);
         }}
       >
         Remove
       </button>
+      <button
+        className="btn btn-success"
+        onClick={() => {
+          props.addItemToKart(props.product.name,props.product.price);
+        }}
+      >
+        Add To Kart
+      </button>
+      </div>
     </div>
   );
 }
