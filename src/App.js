@@ -90,7 +90,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <main className="container mt-1 row g-8">
         <div className="col-6">
           <AddItem addItem={addItem} />
